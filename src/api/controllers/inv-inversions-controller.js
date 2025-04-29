@@ -16,11 +16,15 @@ const {
   UpdateOnePriceHistoryRedis,
   DeleteOnePricesHistoryRedis,
   GetLabelsWithValues,
+} = require("../services/inv-pricehistory-services");
+
+const {
   N4GetALL,
   AddOneNode,
   UpdateNode,
   DeleteNode,
-} = require("../services/inv-pricehistory-services");
+} = require("../services/inv-neo4j-pricehistory-service");
+
 //Principal structure controller class
 
 class InversionsClass extends cds.ApplicationService {
@@ -79,8 +83,7 @@ class InversionsClass extends cds.ApplicationService {
     //Note: the file name with extension .csv must called equal than the data model;
     //otherwhise, it will not be found
 
-    return await super.init();
-
+  
     //NEO4j
     //Controller for GET method
     this.on("N4GetALL", async (req) => {
@@ -102,6 +105,7 @@ class InversionsClass extends cds.ApplicationService {
       return DeleteNode(req);
     });
 
+    return await super.init();
   }
 }
 

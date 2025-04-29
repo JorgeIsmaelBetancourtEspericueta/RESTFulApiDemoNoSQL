@@ -2,10 +2,12 @@ const express = require("express");
 const cds = require("@sap/cds");
 const cors = require("cors");
 const router = express.Router();
-const mongoose = require("./src/config/connectToMongoDB");
+//const mongoose = require("./src/config/connectToMongoDB");
 const dotenvXconfig = require("./src/config/dotenvXconfig.js");
-const redis = require("./src/config/connectToRedis.js");
+//const redis = require("./src/config/connectToRedis.js");
+//const conectionAzureCosmosDB = require("./src/config/conectionToAzureCosmosDB");
 //const mongoose = require("mongoose");
+const neo4j = require('./src/config/connectToNeo4j') //conexion a Neo4j
 
 module.exports = async (o) => {
   try {
