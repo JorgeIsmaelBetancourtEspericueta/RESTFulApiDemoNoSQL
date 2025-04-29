@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@azure/cosmos": "^4.3.0",
     "@dotenvx/dotenvx": "^1.39.0",
     "@sap/cds": "^8",
     "cors": "^2.8.5",
