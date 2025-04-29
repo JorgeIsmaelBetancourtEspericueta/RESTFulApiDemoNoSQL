@@ -57,4 +57,30 @@ service PricesHistoryRouter @(path: '/api/inv') {
     @Core.Description: 'delete-one-prices-history-redis'
     @path            : 'deleteOneRedis'
     action   deleteOneRedis()                       returns array of priceshistory;
+
+    //-------------------NEO4j----------------------------------------------------
+    //Get All
+    @Core.Description: 'get-all-prices-history-Neo4j'
+    @path: 'N4GetALL'
+    function N4GetALL()                                             
+    returns array of LargeString;//Indica que devolverá múltiples registros en formato JSON stringificado
+
+    //POST
+    @Core.Description: 'add-one-node-4j'
+    @path: 'addnode'
+    function addnode(body:priceshistory)
+    returns array of LargeString;
+
+    //PUT
+    @Core.Description: 'update-one-node-4j'
+    @path: 'updatenode'
+    function updatenode(body:priceshistory)
+    returns array of LargeString;
+
+    //DELETE
+    @Core.Description: 'delete-one-node-4j'
+    @path: 'deletenode'
+    function deletenode()
+    returns array of LargeString;
+
 };

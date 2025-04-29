@@ -1,6 +1,10 @@
 //Import libraries
 
 const cds = require("@sap/cds");
+//Neo4j
+/* const {N4GetALL} = require('../services/inv-neo4j-pricehistory-service');
+//Neo4j
+const {N4GetALL, AddOneNode} = require('../services/inv-neo4j-pricehistory-service'); */
 
 const {
   GetAllPricesHistory,
@@ -12,6 +16,10 @@ const {
   UpdateOnePriceHistoryRedis,
   DeleteOnePricesHistoryRedis,
   GetLabelsWithValues,
+  N4GetALL,
+  AddOneNode,
+  UpdateNode,
+  DeleteNode,
 } = require("../services/inv-pricehistory-services");
 //Principal structure controller class
 
@@ -72,6 +80,28 @@ class InversionsClass extends cds.ApplicationService {
     //otherwhise, it will not be found
 
     return await super.init();
+
+    //NEO4j
+    //Controller for GET method
+    this.on("N4GetALL", async (req) => {
+      return N4GetALL(req);
+    });
+
+    //Controller for POST method
+    this.on("addnode", async (req) => {
+      return AddOneNode(req);
+    });
+
+    //Controller for PUT method
+    this.on('updatenode',async (req) => {
+      return UpdateNode(req);            
+    });
+    
+    //Controller for DELETE method
+    this.on('deletenode',async (req) => {
+      return DeleteNode(req);
+    });
+
   }
 }
 
