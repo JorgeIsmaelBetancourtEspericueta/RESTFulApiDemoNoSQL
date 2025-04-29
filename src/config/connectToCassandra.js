@@ -1,10 +1,6 @@
 const configX = require('./dotenvXconfig.js');
 const cassandra = require('cassandra-driver');
-console.log('> HOST:',      configX.CASSANDRA_HOST,      typeof configX.CASSANDRA_HOST);
-console.log('> DC:',        configX.CASSANDRA_DATACENTER, typeof configX.CASSANDRA_DATACENTER);
-console.log('> KEYSPACE:',  configX.CASSANDRA_KEYSPACE,   typeof configX.CASSANDRA_KEYSPACE);
-console.log('> USERNAME:',  configX.CASSANDRA_USERNAME,   typeof configX.CASSANDRA_USERNAME);
-console.log('> PASSWORD:',  configX.CASSANDRA_PASSWORD,   typeof configX.CASSANDRA_PASSWORD);
+
 // Configuración del cliente
 const client = new cassandra.Client({
   contactPoints: [configX.CASSANDRA_HOST],
