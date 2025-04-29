@@ -6,7 +6,6 @@ service inversionsRoute @(path: '/api/inv') {
     entity priceshistory as projection on myinv.priceshistory;
     entity inversions    as projection on myinv.strategies;
 
-    //ruta GetAll AzureCosmosDB
     @Core.Description: 'get-all-prices-inversions'
     @path            : 'getallCosmos'
     function getallCosmos()                        returns array of inversions;
@@ -15,8 +14,6 @@ service inversionsRoute @(path: '/api/inv') {
     @path            : 'getByIdCosmos'
     function getByIdCosmos(id : String)            returns inversions;
 
-
-    //ruta POST AzureCosmosDB
     @Core.Description: 'addOne-prices-history-cosmos'
     @path            : 'addOneCosmos'
     action   addOneCosmos(prices : priceshistory)  returns array of priceshistory;
