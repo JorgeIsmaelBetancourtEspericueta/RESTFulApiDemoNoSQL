@@ -2,14 +2,14 @@ const express = require("express");
 const cds = require("@sap/cds");
 const cors = require("cors");
 const router = express.Router();
-const mongoose = require("./src/config/connectToMongoDB");
 const dotenvXconfig = require("./src/config/dotenvXconfig.js");
 const redis = require("./src/config/connectToRedis.js");
-const conectionAzureCosmosDB = require("./src/config/conectionToAzureCosmosDB");
+const connectToCassandra = require("./src/config/connectToCassandra.js");
 //const mongoose = require("mongoose");
 
 module.exports = async (o) => {
   try {
+
     let app = express();
     app.express = express;
     app.use(express.json({ limit: "500kb" }));
